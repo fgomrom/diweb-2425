@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input[type="range"] {
+  width: 100px;
+}
+audio::-webkit-media-controls-panel {
+    background-color: #4CAF50; /* Color de fondo de los controles en Chrome/Safari */
+}
+    </style>
+</head>
+<body>
+    <audio controls id="myAudio" src="https://www.w3schools.com/tags/horse.ogg">
+    </audio>
+    <div class="audio-controls">
+      <button id="playBtn" aria-label="Reproducir" aria-describedby="playDesc">
+        <span class="play-icon">▶️</span>
+      </button>
+      <button id="pauseBtn" aria-label="Pausar" aria-describedby="pauseDesc">
+        <span class="pause-icon">⏸️</span>
+      </button>
+      <input type="range" id="volumeCtrl" aria-label="Control de volumen" min="0" max="1" step="0.1" value="1">
+    </div>
+    <p id="playDesc">Haz clic para reproducir el audio.</p>
+    <p id="pauseDesc">Haz clic para pausar el audio.</p>
+    <script>
+        const audio = document.getElementById('myAudio');
+const playBtn = document.getElementById('playBtn');
+const pauseBtn = document.getElementById('pauseBtn');
+const volumeCtrl = document.getElementById('volumeCtrl');
+
+playBtn.addEventListener('click', () => {
+  audio.play();
+});
+
+pauseBtn.addEventListener('click', () => {
+  audio.pause();
+});
+
+volumeCtrl.addEventListener('input', () => {
+  audio.volume = volumeCtrl.value;
+});
+    </script>
+</body>
+</html>

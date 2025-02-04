@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedad Display</title>
+    <link rel="stylesheet" href="display.css">
+    <style>
+        a:link {
+            color:black;
+        }
+        a:visited {
+            color:green;
+        }
+        a:hover {
+            color:blue;
+        }
+        a {
+            background-color: chocolate;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function quitate() {
+
+            document.getElementById('quitar').style.display='none';
+        }
+    </script>
+    <h1>Practicando con la propiedad display</h1>
+    <p>La propiedad <code>display</code> en CSS define cómo se muestra un elemento en la página. Experimenta con los diferentes valores.</p>
+
+    <div class="block" id="quitar">Este es un elemento con <code>display: block</code>.</div>
+    <span class="inline">Elemento 1 (inline)</span>
+    <span class="inline">Elemento 2 (inline)</span>
+    <span class="inline">Elemento 3 (inline)</span>
+    <div class="inline-block">Elemento con <code>display: inline-block</code></div>
+    <div class="hidden">Este elemento está oculto con <code>display: none</code>.</div>
+
+    <button id="toggleVisibility" onclick="quitate();">Mostrar/Ocultar Elemento Oculto</button>
+
+    <div>
+
+        <a href="http://www.google.com">Google</a>
+    </div>
+
+    <script>
+        const button = document.getElementById('toggleVisibility');
+        const hiddenElement = document.querySelector('.hidden');
+        button.addEventListener('click', () => {
+            if (hiddenElement.style.display === 'none') {
+                hiddenElement.style.display = 'block';
+            } else {
+                hiddenElement.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
